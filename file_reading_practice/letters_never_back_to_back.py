@@ -57,12 +57,10 @@ Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
 
 path = input("Enter the path of the file: ")
 
-with open(path, "r") as fp:
-    
-   try:
-      seen = set()
-      doubled = set()
-
+try:
+   seen = set()
+   doubled = set()
+   with open(path, "r") as fp:
       for line in fp:
          word = line.strip().lower()
 
@@ -72,9 +70,12 @@ with open(path, "r") as fp:
             if word[i] == word[i + 1]:
                doubled.add(word[i])
    
-   except FileNotFoundError:
-      print("File not found!")
+   answer = sorted(seen - doubled)
 
-answer = sorted(seen - doubled)
+   print(answer)
+   
+except FileNotFoundError:
+   print("File not found!")
 
-print(answer)
+finally:
+    print("__________CODE EXECUTION COMPLETED__________")

@@ -40,3 +40,24 @@ Explanation:
 =================================================
 
 """
+
+
+path = input("Enter thae path of the file: ")
+
+try:
+    cnt = 0
+    
+    with open(path, "r") as fp:
+        for words in fp:
+            word = words.strip().lower()
+            if 'a' in word and 'e' in word and 'i' in word and 'o' in word and 'u' in word:
+                print(word)
+                cnt += 1
+
+    print(f"Total words with all vowels: {cnt}")
+
+except FileNotFoundError:
+    print("File not found!")
+
+finally:
+    print("__________CODE EXECUTION COMPLETED__________")

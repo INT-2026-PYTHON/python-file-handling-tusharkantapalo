@@ -61,9 +61,11 @@ After sorting -> ['a', 'compare', 'i', 'to'].
 
 
 path1, path2 = input("enter the path of the first file: "), input("enter the path of the second file: ")
+
 try:
    sonnet_words = set()
    sowpods_words = set()
+
    with open(path1, "r") as fp1:
       for words in fp1:
          sonnet_words.add(words.strip())
@@ -78,3 +80,7 @@ try:
 
 except FileNotFoundError:
    print("File not found!")
+
+finally:
+    print("__________CODE EXECUTION COMPLETED__________")
+    

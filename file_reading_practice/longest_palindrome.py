@@ -45,11 +45,13 @@ The longest is "malayalam" with 9 characters.
 
 
 def is_palindrome(word):
-    word = word.strip().lower()
-    if word == word[ : :-1]:
-        return True
-    else:
-        return False
+    
+   word = word.strip().lower()
+
+   if word == word[ : :-1]:
+      return True
+   else:
+      return False
 
 
 path = input("Enter thae path of the file: ")
@@ -76,5 +78,9 @@ try:
          long_list.add(word)
 
    print(f"The longest palindromes are/is: {long_list}")
+
 except FileNotFoundError:
     print("File not found!")
+
+finally:
+    print("__________CODE EXECUTION COMPLETED__________")
