@@ -53,3 +53,29 @@ Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
 =================================================
 
 """
+
+
+path = input("Enter the path of the file: ")
+
+try:
+   seen = set()
+   doubled = set()
+   with open(path, "r") as fp:
+      for line in fp:
+         word = line.strip().lower()
+
+         for ch in word:
+            seen.add(ch)
+         for i in range(len(word) - 1):
+            if word[i] == word[i + 1]:
+               doubled.add(word[i])
+   
+   answer = sorted(seen - doubled)
+
+   print(answer)
+   
+except FileNotFoundError:
+   print("File not found!")
+
+finally:
+    print("__________CODE EXECUTION COMPLETED__________")
