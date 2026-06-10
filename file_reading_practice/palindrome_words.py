@@ -51,3 +51,25 @@ Explanation:
 =================================================
 
 """
+
+
+def is_palindrome(word):
+    word = word.strip().lower()
+    if word == word[ : :-1]:
+        return True
+    else:
+        return False
+
+
+path = input("Enter thae path of the file: ")
+
+try:
+    palindrome = set()
+    with open(path, "r") as fp:
+        for word in fp:
+            if is_palindrome(word):
+                palindrome.add(word.strip())
+except FileNotFoundError:
+    print("File not found!")
+
+print(f"Palindrome words are: {palindrome}")
