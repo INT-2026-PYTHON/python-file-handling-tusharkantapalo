@@ -58,3 +58,23 @@ After sorting -> ['a', 'compare', 'i', 'to'].
 =================================================
 
 """
+
+
+path1, path2 = input("enter the path of the first file: "), input("enter the path of the second file: ")
+try:
+   sonnet_words = set()
+   sowpods_words = set()
+   with open(path1, "r") as fp1:
+      for words in fp1:
+         sonnet_words.add(words.strip())
+   
+   with open(path2, "r") as fp2:
+       for words in fp2:
+          sowpods_words.add(words.strip())
+
+   answer = sonnet_words - sowpods_words
+
+   print(f"Words unique to sonnet words are: {answer} and number of words is: {len(answer)}")
+
+except FileNotFoundError:
+   print("File not found!")

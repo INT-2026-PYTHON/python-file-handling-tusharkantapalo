@@ -55,25 +55,26 @@ def is_palindrome(word):
 path = input("Enter thae path of the file: ")
 
 try:
-    palindrome = []
-    with open(path, "r") as fp:
-        for word in fp:
-            if is_palindrome(word):
-                palindrome.append(word.strip())
+   palindrome = []
+
+   with open(path, "r") as fp:
+      for word in fp:
+         if is_palindrome(word):
+            palindrome.append(word.strip())
+
+   longest = palindrome[0]
+   long_list = set()
+
+   for word in palindrome:
+      if len(word) > len(longest):
+         longest = word
+
+   long_list.add(longest)
+
+   for word in palindrome:
+      if len(word) == len(longest):
+         long_list.add(word)
+
+   print(f"The longest palindromes are/is: {long_list}")
 except FileNotFoundError:
     print("File not found!")
-
-longest = palindrome[0]
-long_list = set()
-
-for word in palindrome:
-    if len(word) > len(longest):
-        longest = word
-
-long_list.add(longest)
-
-for word in palindrome:
-    if len(word) == len(longest):
-        long_list.add(word)
-
-print(long_list)
